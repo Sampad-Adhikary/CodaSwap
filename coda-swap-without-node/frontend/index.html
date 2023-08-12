@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coda Swap</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="header">
+    <h1>Welcome to Coda Swap</h1>
+    </div>
+    <h2>Your Balance: <span id="balance"></span> CODA</h2>
+    <div id="parent">
+    <div>
+      <input
+        type="number"
+        id="sendAmount"
+        placeholder="Amount of ETH to Send"
+      />
+      <button id="sendTokens">Send ETH for Tokens</button>
+    </div>
+    <!-- Send Tokens to an account -->
+    <div>
+      <input type="text" id="toAddress" placeholder="Recipient's Address" />
+      <input type="text" id="transferAmount" placeholder="Amount to Transfer" />
+      <button id="transferTokens">Transfer Tokens</button>
+    </div>
+    <div>
+      <input type="text" id="tokenAmount" placeholder="Token Amount" />
+      <button id="getEthBack">Get ETH Back</button>
+    </div>
+    <div>
+        <input type="text" id="addressToCheck" placeholder="Enter Ethereum Address">
+        <button id="checkAddressBalance">Check Address Balance</button>
+        <h3>Token Balance for Address: <span id="addressTokenBalance"></span> CODA</h3>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+/coda-swap-with-node/coda-swap-smart-contract/node_modules
+/coda-swap-with-node/coda-swap-smart-contract/artifacts
+/coda-swap-with-node/coda-swap-smart-contract/cache
+/coda-swap-with-node/node_modules
+
+coda-swap-without-node/coda-swap-smart-contract/node_modules
+coda-swap-without-node/coda-swap-smart-contract/artifacts
+coda-swap-without-node/coda-swap-smart-contract/cache
