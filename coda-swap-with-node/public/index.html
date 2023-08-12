@@ -2,40 +2,54 @@
 <html>
   <head>
     <title>Coda Swap</title>
+    <!-- Link to an external CSS stylesheet -->
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+    <!-- Header section -->
     <div id="header">
-    <h1>Welcome to Coda Swap</h1>
+      <h1>Welcome to Coda Swap</h1>
     </div>
+    
+    <!-- Display user balance -->
     <h2>Your Balance: <span id="balance"></span> CODA</h2>
+    
+    <!-- Parent container for different sections -->
     <div id="parent">
-    <div>
-      <input
-        type="number"
-        id="sendAmount"
-        placeholder="Amount of ETH to Send"
-      />
-      <button id="sendTokens">Send ETH for Tokens</button>
-    </div>
-    <!-- Send Tokens to an account -->
-    <div>
-      <input type="text" id="toAddress" placeholder="Recipient's Address" />
-      <input type="text" id="transferAmount" placeholder="Amount to Transfer" />
-      <button id="transferTokens">Transfer Tokens</button>
-    </div>
-    <div>
-      <input type="text" id="tokenAmount" placeholder="Token Amount" />
-      <button id="getEthBack">Get ETH Back</button>
-    </div>
-    <div>
+      <!-- Section for sending ETH for tokens -->
+      <div>
+        <input
+          type="number"
+          id="sendAmount"
+          placeholder="Amount of ETH to Send"
+        />
+        <button id="sendTokens">Send ETH for Tokens</button>
+      </div>
+      
+      <!-- Section for transferring tokens to an account -->
+      <div>
+        <input type="text" id="toAddress" placeholder="Recipient's Address" />
+        <input type="text" id="transferAmount" placeholder="Amount to Transfer" />
+        <button id="transferTokens">Transfer Tokens</button>
+      </div>
+      
+      <!-- Section for exchanging tokens for ETH -->
+      <div>
+        <input type="text" id="tokenAmount" placeholder="Token Amount" />
+        <button id="getEthBack">Get ETH Back</button>
+      </div>
+      
+      <!-- Section for checking an address's token balance -->
+      <div>
         <input type="text" id="addressToCheck" placeholder="Enter Ethereum Address">
         <button id="checkAddressBalance">Check Address Balance</button>
         <h3>Token Balance for Address: <span id="addressTokenBalance"></span> CODA</h3>
+      </div>
     </div>
-    </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script> -->
+    
+    <!-- Include the Web3.js library -->
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+    <!-- Include the JavaScript script file -->
     <script type="module" src="script.js"></script>
   </body>
 </html>

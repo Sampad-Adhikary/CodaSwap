@@ -439,7 +439,6 @@ document.getElementById('transferTokens').addEventListener('click', async () => 
   });
 
   updateBalance();
-  //updateTokenBalance();
 });
 
 //Send tokens back to the contract
@@ -450,7 +449,6 @@ document.getElementById('getEthBack').addEventListener('click', async () => {
       from: accounts[0]
   });
   updateBalance();
-  //updateTokenBalance();
 });
 
 //Fetch token balance of an account
@@ -463,5 +461,4 @@ document.getElementById('checkAddressBalance').addEventListener('click', async (
 // Initialize
 window.ethereum.enable().then(() => {
   updateBalance();
-  // updateAddressTokenBalance(); 
 });

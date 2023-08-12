@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 
-// Serve static files from the 'public' directory
+// Serve static files from the 'public' directory i.e index.html script.js style.css
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Start the server
