@@ -1,0 +1,141 @@
+{
+    "title": "Creating Ethereum Dapp with UI to exchange ethers for custom CODA tokens.",
+    "steps": [
+      {
+        "step": "1",
+        "task": "In this exercise, we will create an Ethereum Dapp, Coda Swap (Solidity Smart Contract + Node Js backend + HTML & CSS) that exchanges ETH for a our custom token (CODA). We will be using hardhat to deploy the smart contract on a local Ganache blockchain. We will then use Node + HTML + JS , to build a web app that can interact with the deployed smart contract."
+      },
+      {
+        "step": "2",
+        "task": "First step is to create a hardhat project. Normally, we can use 'npx hardhat' command to create a hardhat project with new hardhat.config.js file. But in this case, we will be using a pre-created hardhat project."
+      },
+      {
+        "content": "git clone https://github.com/Sampad-Adhikary/CodaSwap/tree/main/coda-swap-with-node.git",
+        "step": "3",
+        "task": "Clone already created hardhat project from github repo."
+      },
+      {
+        "step": "4",
+        "task": "Switch to 'VS Code' and check the cloned 'coda-swap-with-node' directory. You will be able to see  'coda-swap-smart-contact' and 'webapp' directories. In this the first directory is related to the smart contract and hardhat and last one is related to our app's UI."
+      },
+      {
+        "step": "5",
+        "task": "Open the 'coda-swap-smart-contract' directory and then open the smart-contract  written in solidity language in 'contracts' folder. The smart contract has 4 methods 1.sendETHForTokens() to exchange tokens for ethereum. 2. checkTokenBalance which returns the balance in terms of CODA tokens. 3. transferTokens to transfer tokens from one ethereum address to another. and 4. getEthBack to exchange tokens for Ether nad receive and receive a percentage of Ether back."
+      },
+      {
+        "content": "npm install --save-dev '@nomiclabs/hardhat-waffle' '@openzeppelin/contracts' 'dotenv' 'ethers' 'hardhat'",
+        "step": "6",
+        "task": "Before running hardhat, we will have to install all the dependencies. This can be done using 'npm install' command. In terminal, from the 'coda-swap-smart-contract' directory, run the command."
+      },
+      {
+        "content": "npx hardhat compile",
+        "step": "7",
+        "task": "Compile the hardhat source code to generate byte code. This can be done using 'npx hardhat compile' command. Run the compilation command."
+      },
+      {
+        "content": "ganache -h 0.0.0.0 -m testseed",
+        "step": "8",
+        "task": "open a new terminal and run Ganache to start a local blockchain. Ganache is a personal blockchain for Ethereum development that can be used to deploy contracts, develop applications, and run tests."
+      },
+      {
+        "step": "9",
+        "task": "Let Ganache run in the current tab and Open a new terminal tab to proceed with the next steps."
+      },
+      {
+        "step": "10",
+        "task": "In this case, we have already added private keys of first account (accounts[0]) provided by Ganache to 'hardhat.config.js' file. This will be used to deploy the Smart contract to Ganache blockchain. We will have to change this with appropriate private keys if we want to deploy it on public Testnets or Mainnet."
+      },
+      {
+        "step": "11",
+        "task": "We are now ready to deploy this contract. Switch to 'scripts' folder. deploy.js is the deployment script written in Javascript which will deploy the smart contract using the hardhat configuration."
+      },
+      {
+        "content": "npx hardhat run scripts/deploy.js --network ganache",
+        "step": "12",
+        "task": "Switch to terminal and run deployment script to deploy the smart contract on 'ganache' network."
+      },
+      {
+        "step": "13",
+        "task": "A successful deployment will generate a contract address which will be printed in the terminal, keep it safe because we will need it in future steps. It will also create a new file called 'Token.json' in the 'artifacts/contracts' folder. This file contains the ABI for the deployed smart contract."
+      },
+      {
+        "step": "14",
+        "task": "Contract is deployed and we can interact with it. Now, let's proceed to create a Node + HTML project to build a web app that can interact with the deployed smart contract."
+      },
+      {
+        "step": "15",
+        "task": "At this point, the next step is to create a node project using 'npm init' command. But, we already have the project files in the cloned repo. So, we will be using that."
+      },
+      {
+        "content": "cd webapp",
+        "step": "16",
+        "task": "Change the project directory to 'webapp'."
+      },
+      {
+        "content": "npm install --save-dev express",
+        "step": "17",
+        "task": "Let's start our node js server. Make sure to run this command in 'webapp' directory."
+      },
+      {
+        "content": "node server.js",
+        "step": "18",
+        "task": "Launch local app server. This will serve the web app over port 3000. Keep this command running in the terminal and use new terminal tab for next steps."
+      },
+      {
+        "step": "19",
+        "task": "Switch to 'localhost:3000' tab, press 'Go' button. If you are facing issues and seeing a warning in a browser regarding 'Embedded page not allowed', then please use the provided button to access this link in a new browser tab. Then, you should be able to see the webapp page."
+      },
+      {
+        "step": "20",
+        "task": "The webapp contains code to interact with the deployed smart contract. However, we wil have to make some changes for it to work."
+      },
+      {
+        "step": "21",
+        "task": "Switch to VS Code and check 'script.js'  in 'webapp/public' directory. This is the main app file. Replace the Contract address 'contractAddress' and contract ABI 'contractABI' present in this file with the contract address acquired in the previous steps."
+      },
+      {
+        "metaMaskTutorial": "https://www.youtube.com/embed/zMIqHD_6g9A",
+        "step": "22",
+        "blockchain": "add_local",
+        "task": "As we will be using Metamask to interact with the smart contract, we will need to add our local Ganache network to Metamask. To do so, click on the provided button. This will take you through the process of adding a custom RPC to Metamask."
+    },
+    {
+        "img": "https://web3toolsimage.s3.eu-north-1.amazonaws.com/vyper-brownie-django-dapp/ss1.png",
+        "step": "23",
+        "task": "Now, we need to add an address to Metamask which has some test Ether. Click on Account section of Metamask and select 'Import Account'."
+    },
+    {
+        "content": "0xf72ceaaa935cfc259264319c8c1504964caf0789c41c990f0464b2a85d9eb140",
+        "img": "https://web3toolsimage.s3.eu-north-1.amazonaws.com/vyper-brownie-django-dapp/ss2.png",
+        "step": "24",
+        "task": "Enter the private key of the second account (accounts[1]) provided by Ganache. This will import the account to Metamask. This account has 100 test Ether."
+    },
+      {
+        "step": "25",
+        "task": "Initially the page will show balance as 0 CODA tokens. However, you can exchange any amount in Ethers with CODA tokens, enter any amount in ETH(e.g., 10) in the text field and press the 'Send ETH for Tokens' button. Metamask will initiate a transaction to the smart contract. You'll need to click the 'Confirm' button to authorize the transaction and proceed with the token exchange."
+      },
+      {
+        "step": "26",
+        "task": "After the transaction is confirmed, refresh the page, you will observe that the balance changes to 100000000000000000000 CODA will be displayed on the page in front of balance."
+      },
+      {
+        "content":"0xc5273C7139db6004224E78510745d58dF1c024CF",
+        "step": "27",
+        "task": "Now we will transfer some coda tokens to some other account. You can use the given address(or take any form the ganache-cli terminal) and paste in the recipient address input box. After that fill the number of tokens to transfer and then click on Transfer Tokens button. Metamask will initiate a transaction to the smart contract. You'll need to click the 'Confirm' button to authorize the transaction and proceed with the token transfer."
+      },
+      {
+        "content":"0xc5273C7139db6004224E78510745d58dF1c024CF",
+        "step": "28",
+        "task": "After the transaction is confirmed, you can check the balance at your Receiver's address to confirm the token transfer. Just paste the address int the 'Enter Ethereum Address' box and click on the 'Check Address balance' button to  observe it's balance. You can also check balance for other addresses."
+      },
+      {
+        "step":"28",
+        "task":"We can also exchange our tokens to get back some percentage of Ethers. To do so enter the amount in CODA tokens that we need to exchange and then click on 'Get ETH Back' button."
+      },
+      {
+        "step": "29",
+        "task": "We leaned how to interact develop, deploy a Solidity Smart Contract on Ganache blockchain and created a UI for it and interacted through the UI." 
+      }
+    ],
+  "time": "60 minutes"
+  }
